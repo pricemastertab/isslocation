@@ -1,4 +1,4 @@
-import {Component, useState} from 'react';
+import {Component, useState, useEffect} from 'react';
 import {Text, View, StyleSheet, ImageBackground, SafeAreaView, StatusBar, Alert } from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
 import axios, {Axios} from 'axios';
@@ -42,7 +42,7 @@ export default function IssLocationScreen() {
             }} 
             ></Marker>
             </MapView>
-            <Image source={require('../assets/iss_icon')} style={{height: 50, width: 50}} ></Image>
+            <Image source={require('../assets/iss_icon.png')} style={{height: 50, width: 50}} ></Image>
     
            <View style={styles.infoContainer} >
            <Text style={styles.infoText} >latitude: {location.latitude}</Text>
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   droidSafeArea: {
-    marginTop: Plataform.os === 'android'? StatusBar.currentHeight: 0,
+    marginTop: Platform.OS === 'android'? StatusBar.currentHeight: 0,
   },
   titleBar: {
     flex: 0.15,
